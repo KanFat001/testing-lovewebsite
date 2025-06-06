@@ -8,6 +8,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
+     {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 bg-black/20 backdrop-blur-sm">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Left Navigation - Hidden on mobile, visible on tablet+ */}
@@ -38,13 +39,17 @@ export default function HomePage() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""}`}
+              className={`block w-6 h-0.5 bg-white transition-all duration-300 transform origin-top-left ${
+                isMobileMenuOpen ? "rotate-45 translate-y-1" : ""
+              }`}
             ></span>
             <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}
+              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}
             ></span>
             <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
+              className={`block w-6 h-0.5 bg-white transition-all duration-300 transform origin-bottom-left ${
+                isMobileMenuOpen ? "-rotate-45 translate-y-[-1px]" : ""
+              }`}
             ></span>
           </button>
 
@@ -89,7 +94,9 @@ export default function HomePage() {
 
         {/* Mobile Menu Overlay */}
         <div
-          className={`lg:hidden fixed inset-0 bg-black/95 backdrop-blur-sm transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+          className={`lg:hidden fixed inset-0 bg-black/80 backdrop-blur-md z-40 flex items-center justify-center transition-opacity duration-300 ${
+            isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <Link
