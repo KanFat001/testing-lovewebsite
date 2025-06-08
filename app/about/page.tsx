@@ -16,7 +16,7 @@ export default function AboutPage() {
           <div className="hidden lg:flex space-x-6 xl:space-x-8">
             <Link
               href="/about"
-              className="text-xs md:text-sm font-light tracking-[0.2em] uppercase hover:text-gray-300 transition-colors border-b border-white pb-1"
+              className="text-xs md:text-sm font-light tracking-[0.2em] uppercase hover:text-gray-300 transition-colors"
             >
               About
             </Link>
@@ -34,27 +34,32 @@ export default function AboutPage() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Professional Hamburger Design */}
           <button
-            className="lg:hidden flex flex-col space-y-1 group z-50 relative"
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center group z-50"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 transform origin-top-left ${
-                isMobileMenuOpen ? "rotate-45 translate-y-1" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}
-            ></span>
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 transform origin-bottom-left ${
-                isMobileMenuOpen ? "-rotate-45 translate-y-[-1px]" : ""
-              }`}
-            ></span>
+            <div className="relative w-6 h-6 flex flex-col justify-center items-center">
+              <span
+                className={`block absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
+                  isMobileMenuOpen ? "rotate-45" : "-translate-y-1.5"
+                }`}
+              ></span>
+              <span
+                className={`block absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
+                  isMobileMenuOpen ? "opacity-0" : ""
+                }`}
+              ></span>
+              <span
+                className={`block absolute h-0.5 w-6 bg-white transform transition duration-300 ease-in-out ${
+                  isMobileMenuOpen ? "-rotate-45" : "translate-y-1.5"
+                }`}
+              ></span>
+            </div>
           </button>
 
-          {/* Center Logo */}
+          {/* Center Logo - Responsive sizing */}
           <Link href="/" className="text-center absolute left-1/2 transform -translate-x-1/2">
             <div className="text-lg md:text-xl lg:text-2xl font-light tracking-[0.2em] md:tracking-[0.3em] uppercase mb-1">
               Superlove
@@ -64,8 +69,9 @@ export default function AboutPage() {
             </div>
           </Link>
 
-          {/* Right Side */}
+          {/* Right Side - Social & Inquire - Responsive */}
           <div className="flex items-center space-x-3 md:space-x-4 lg:space-x-6">
+            {/* Social Icons - Hidden on small mobile, visible on larger screens */}
             <div className="hidden sm:flex space-x-3 md:space-x-4">
               <Link href="https://instagram.com/superlovefilm" className="hover:text-gray-300 transition-colors">
                 <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -74,7 +80,7 @@ export default function AboutPage() {
               </Link>
               <Link href="https://vimeo.com/superlovefilm" className="hover:text-gray-300 transition-colors">
                 <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.084 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z" />
+                  <path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.8 অপারেটিং.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.084 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z" />
                 </svg>
               </Link>
               <Link href="https://tiktok.com/@superlovefilm" className="hover:text-gray-300 transition-colors">
@@ -92,44 +98,162 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
+        {/* Professional Mobile Menu Overlay */}
         <div
-          className={`lg:hidden fixed inset-0 bg-black/80 backdrop-blur-md z-40 flex items-center justify-center transition-opacity duration-300 ${
-            isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ease-in-out ${
+            isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
           }`}
         >
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <Link
-              href="/about"
-              className="text-2xl font-light tracking-[0.2em] uppercase hover:text-gray-300 transition-colors border-b border-white pb-1"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/pricing"
-              className="text-2xl font-light tracking-[0.2em] uppercase hover:text-gray-300 transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Pricing & Process
-            </Link>
-            <Link
-              href="/portfolio"
-              className="text-2xl font-light tracking-[0.2em] uppercase hover:text-gray-300 transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/contact"
-              className="text-2xl font-light tracking-[0.2em] uppercase hover:text-gray-300 transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
+          {/* Background Overlay */}
+          <div
+            className={`absolute inset-0 bg-black transition-opacity duration-500 ${
+              isMobileMenuOpen ? "opacity-95" : "opacity-0"
+            }`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          ></div>
+
+          {/* Menu Content */}
+          <div
+            className={`relative h-full flex flex-col justify-center items-center px-8 transform transition-all duration-500 ease-in-out overflow-y-auto py-20 ${
+              isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+          >
+            {/* Navigation Links */}
+            <nav className="flex flex-col items-center space-y-6 mb-12 w-full">
+              <Link
+                href="/about"
+                className="text-xl md:text-2xl font-light tracking-[0.25em] uppercase text-white hover:text-gray-300 transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/portfolio"
+                className="text-xl md:text-2xl font-light tracking-[0.25em] uppercase text-white hover:text-gray-300 transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Portfolio
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/pricing"
+                className="text-xl md:text-2xl font-light tracking-[0.25em] uppercase text-white hover:text-gray-300 transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Pricing & Process
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/contact"
+                className="text-xl md:text-2xl font-light tracking-[0.25em] uppercase text-white hover:text-gray-300 transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              {/* Additional Navigation Links */}
+              <div className="w-16 h-px bg-gray-700 my-4"></div>
+
+              <Link
+                href="/services"
+                className="text-lg font-light tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Services
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/investment"
+                className="text-lg font-light tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Investment
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/process"
+                className="text-lg font-light tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Process
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/testimonials"
+                className="text-lg font-light tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Testimonials
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/faq"
+                className="text-lg font-light tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-all duration-300 relative group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                FAQ
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </nav>
+
+            {/* Call to Action */}
+            <div className="mb-8">
+              <Link
+                href="/contact"
+                className="inline-block bg-white text-black px-8 py-3 text-sm tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Start Your Story
+              </Link>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex space-x-8 mb-8">
+              <Link
+                href="https://instagram.com/superlovefilm"
+                className="text-white hover:text-gray-300 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </Link>
+              <Link
+                href="https://vimeo.com/superlovefilm"
+                className="text-white hover:text-gray-300 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.084 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z" />
+                </svg>
+              </Link>
+              <Link
+                href="https://tiktok.com/@superlovefilm"
+                className="text-white hover:text-gray-300 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Contact Info */}
+            <div className="text-center text-gray-400">
+              <p className="text-xs tracking-[0.2em] uppercase mb-2">Los Angeles, California</p>
+              <p className="text-xs">hello@superlovefilm.com</p>
+            </div>
+
+            {/* Close Instruction */}
+            <div className="absolute bottom-8 text-center">
+              <p className="text-xs tracking-[0.3em] uppercase text-gray-500">Tap outside to close</p>
+            </div>
           </div>
         </div>
       </nav>
+
 
       {/* Hero Section - ABOUT ALEXA */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
